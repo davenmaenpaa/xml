@@ -17,7 +17,7 @@ public final class Xml {
     /**
      * Returns a generic object from a XML-file.
      *
-     * @param path  path to the XML-file to convert from
+     * @param path  path to the file to convert from
      * @param type  object type to derive from the XML-file
      * @return      object obtained from the XML-file
      */
