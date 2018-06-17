@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -181,13 +182,14 @@ public class Shiporder {
     }
 
     @Override
-    public String toString() {
-        return "Shiporder{" +
-                "orderperson='" + orderperson + '\'' +
-                ", shipto=" + shipto +
-                ", item=" + item +
-                ", orderid='" + orderid + '\'' +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Shiporder)) return false;
+        Shiporder shiporder = (Shiporder) o;
+        return Objects.equals(getOrderperson(), shiporder.getOrderperson()) &&
+                Objects.equals(getShipto(), shiporder.getShipto()) &&
+                Objects.equals(getItem(), shiporder.getItem()) &&
+                Objects.equals(getOrderid(), shiporder.getOrderid());
     }
 
 
@@ -332,13 +334,14 @@ public class Shiporder {
         }
 
         @Override
-        public String toString() {
-            return "Item{" +
-                    "title='" + title + '\'' +
-                    ", note='" + note + '\'' +
-                    ", quantity=" + quantity +
-                    ", price=" + price +
-                    '}';
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Item item = (Item) o;
+            return Objects.equals(title, item.title) &&
+                    Objects.equals(note, item.note) &&
+                    Objects.equals(quantity, item.quantity) &&
+                    Objects.equals(price, item.price);
         }
     }
 
@@ -480,13 +483,14 @@ public class Shiporder {
         }
 
         @Override
-        public String toString() {
-            return "Shipto{" +
-                    "name='" + name + '\'' +
-                    ", address='" + address + '\'' +
-                    ", city='" + city + '\'' +
-                    ", country='" + country + '\'' +
-                    '}';
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Shipto shipto = (Shipto) o;
+            return Objects.equals(name, shipto.name) &&
+                    Objects.equals(address, shipto.address) &&
+                    Objects.equals(city, shipto.city) &&
+                    Objects.equals(country, shipto.country);
         }
     }
 }
