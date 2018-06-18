@@ -60,6 +60,7 @@ class XmlTest {
         expectedOrder.getItem().add(item);
 
         Shiporder actual = (Shiporder) xml.toObject("xmlToObject.xml", Shiporder.class);
+
         assertEquals(expectedOrder, actual);
     }
 
