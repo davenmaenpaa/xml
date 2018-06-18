@@ -48,7 +48,7 @@ class XmlTest {
         expectedOrder.getItem().add(item1);
     }
 
-    @DisplayName("Testing method converting from XML to object")
+    @DisplayName("Testing method converting XML to object")
     @Test
     void toObject() {
         Shiporder.Item item = new ObjectFactory().createShiporderItem();
@@ -59,16 +59,16 @@ class XmlTest {
 
         expectedOrder.getItem().add(item);
 
-        Shiporder actual = (Shiporder) xml.toObject("test.xml", Shiporder.class);
+        Shiporder actual = (Shiporder) xml.toObject("xmlToObject.xml", Shiporder.class);
         assertEquals(expectedOrder, actual);
     }
 
     @DisplayName("Testing method converting object to XML")
     @Test
     void toFile() throws IOException {
-        xml.toFile("testfile.xml", expectedOrder);
+        xml.toFile("objectToXml.xml", expectedOrder);
 
-        String actual = new String(Files.readAllBytes(Paths.get("testfile.xml")));
+        String actual = new String(Files.readAllBytes(Paths.get("objectToXml.xml")));
         String expected = new String(Files.readAllBytes(Paths.get("facit.xml")));
 
         assertEquals(expected, actual);
