@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -67,11 +68,16 @@ class XmlTest {
     @DisplayName("Testing method converting object to XML")
     @Test
     void toFile() throws IOException {
-        xml.toFile("objectToXml.xml", expectedOrder);
+        String testPath = "objectToXml.xml";
+        xml.toFile(testPath, expectedOrder);
 
-        String actual = new String(Files.readAllBytes(Paths.get("objectToXml.xml")));
+        String actual = new String(Files.readAllBytes(Paths.get(testPath)));
         String expected = new String(Files.readAllBytes(Paths.get("facit.xml")));
 
         assertEquals(expected, actual);
+
+        new File(testPath).delete();
     }
+
+
 }
