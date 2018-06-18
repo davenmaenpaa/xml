@@ -54,7 +54,6 @@ public final class Xml {
 
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            jaxbMarshaller.setProperty("line.seperator", "/r/n");
             jaxbMarshaller.marshal(object, file);
             jaxbMarshaller.marshal(object, System.out);
 
