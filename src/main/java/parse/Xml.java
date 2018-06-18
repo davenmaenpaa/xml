@@ -28,7 +28,6 @@ public final class Xml {
 
             File file = new File(path);
             JAXBContext jaxbContext = JAXBContext.newInstance(type);
-
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             object = jaxbUnmarshaller.unmarshal(file);
 
