@@ -72,6 +72,8 @@ class XmlTest {
         xml.toFile(testPath, expectedOrder);
 
         String actual = new String(Files.readAllBytes(Paths.get(testPath)));
+        actual = actual.replaceAll("\r?\n", "\r\n");
+
         String expected = new String(Files.readAllBytes(Paths.get("facit.xml")));
 
         assertEquals(expected, actual);
